@@ -1,0 +1,12 @@
+/* _nav.scss *** Styles for the nav section of the page. */
+
+.ancors {
+	a {
+		float:left;
+		cursor: pointer;
+
+		@include media("<tablet") {
+			float: none;
+		}
+	}
+}

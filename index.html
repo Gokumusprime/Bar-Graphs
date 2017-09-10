@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <title>Site Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Scripts Loaded -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://use.fontawesome.com/b32fb966ac.js"></script>
+    <script src="dist\js\all.js"></script>
+    <!-- CSS Loaded -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="dist/css/all.css">
+    <style>
+    body {
+        padding-top: 70px;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./index.html">Gianni's Graphs</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="ancors">
+                        <a href="./index.html">Home</a>
+                        <a href="#q1">Question 1</a>
+                        <a href="#q2">Question 2</a>
+                        <a href="#q3">Question 3</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Content -->
+    <div class="container">
+            <h1 class="col-xs-12 page-title"><a name="q1">Question 1: Build Chart</a></h1>
+            <div class="col-xs-12">
+                <div class="hoirizontal-bar-graph chart-area">
+                    <span class="chart-main-title">Revenue by Email Type</span>
+                    <span class="chart-sub-title">Average order size: $50 to $100</span>
+                    <span class="labels">Winback emails,Browse abandonment emails,Welcome series,Abandoned cart emails</span>
+                    <span class="data">.46,.61,1.28,2.82</span>
+                    <span class="chart-colors">#222720,#24ce7b,#086290,#1bc0d3</span>
+                    <span class="chart-tooltip-label">Dollar Value: </span>
+                    <div class="chart-title"></div>
+                    <canvas id="myChart"></canvas>
+                    <div class="legend"></div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <p>Below is a graph that was constructed using the chart.js library.  I decided to use this because it would allow for us to make these graphs reusable in a CMS environment through HTML markup.  I’ll go over that part more in detail down the page.</p>
+                <p>Here’s what I’ve added to the graph to improve it:</p>
+                <ul>
+                    <li>The graph is no longer an image.</li>
+                    <li>The graph is now responsive while maintaining a good look.</li>
+                    <li>The graph now uses the canvas HTML5 element which is in line with modern browsers.</li>
+                    <li>The graph now animates on load and when scrolled to.</li>
+                    <li>I’ve added a hover effect when hovering over a bar in the graph.</li>
+                    <li>I included a tooltip on any particular bar once hover over it.  The tooltip shows the exact value for the current bar.</li>
+                    <li>It  functions in all modern browsers.</li>
+                </ul>
+                <p>Now, what do I mean by this graph being easily re-suable and editable?  What I’ve done here is create js that works with the chart.js library to detect hidden element content on the page.  Of course, we could later set this content as variables but I wanted this to function easily in side of a CMS at the moment.</p>
+                <p>When trying to create a horizontal bar graph, a user could edit the RTE field inside Wordpress or any other CMS and just drop some simple html markup.  The span tags inside this markup would contain your raw delimited data for the graph.  See the snippet markup in the image below.</p>
+                <img src=".\images\snippet-markup.png" class="content-image" alt="Snippet Markup" />
+                <p>A single page is also capable of having multiple graphs in this manner.  I would later investigate different types of snippet graphs or find a way to utilize a field in the CMS that would populate a json file or js variables to use instead.</p>
+            </div>
+            <div class="col-xs-12 col-md-8">
+                <div class="hoirizontal-bar-graph chart-area">
+                    <span class="chart-main-title">Revenue by Email Type</span>
+                    <span class="chart-sub-title">Average order size: $50 to $100</span>
+                    <span class="labels">Winback emails,Browse abandonment emails,Welcome series,Abandoned cart emails</span>
+                    <span class="data">.46,.61,1.28,2.82</span>
+                    <span class="chart-colors">#222720,#24ce7b,#086290,#1bc0d3</span>
+                    <span class="chart-tooltip-label">Dollar Value: </span>
+                    <div class="chart-title"></div>
+                    <canvas id="myChart2"></canvas>
+                    <div class="legend"></div>
+                </div>
+            </div>
+            <h1 class="col-xs-12 page-title"><a name="q2">Question 2: What Would I Change About Klaviyo.com</a></h1>
+            <div class="col-xs-12">
+                <ul>
+                    <li>Located on this page: https://www.klaviyo.com/marketing-resources/ecommerce-benchmarks , I would combine the “Avg Revenue Per Recipient By Email Type” graphs into a single graph with filter buttons to adjust the average order size.  That way you conserve space and allow the user to switch between average.  It may even be possible to add an input to allow the user to put in their own average to see how it shapes out.</li>
+                    <li>The ability to share content on social media for pages like https://www.klaviyo.com/marketing-resources/ecommerce-benchmarks only appears when scrolling past a certain point.  I understand that it’s because this is using the custom header that contains page anchors and you may not want to display it when scrolled to the top.  In this case, I would have the social media share icons either statically placed on the side of the screen above the content so that it’s always there while scrolling or I would only place it there once you begin the scrolling and the header appears.  You could reuse the same html markup for the social media to move to a fixed look on scroll by adding a class to it.</li>
+                    <li>I found the pop-up modal a bit intrusive on the marketing resource pages.  For example: https://www.klaviyo.com/marketing-resources/ecommerce-maturity-model . It appears right in front of you while scrolling.  I understand that we wouldn’t want clients or potential clients to miss it so I would maybe have it animate out from a fixed position of the left side of the screen when scrolling past the same point.  It will only occupy the available white space on the side of the screen and won’t block what you’re reading and forces you to take notice at the same time.  For a mobile solution, I would have it fixed to the bottom of the screen in front of the content by altering its z-index.  While at the bottom, it would look like a thinner strip of content that spans across the bottom part of the page.  It will feel like it’s a part of the browser’s UI on a mobile phone.</li>
+                </ul>
+            </div>
+            <h1 class="col-xs-12 page-title"><a name="q3">Question 3: How I Would Create Chart 2</a></h1>
+            <div class="col-xs-12">
+                <p>I would use the following libraries:</p>
+                <ul>
+                    <li>Bootstrap.css and js</li>
+                    <li>D3.js or chart.js (Though chart.js is nice, d3.js may be better for more complicated goals)</li>
+                    <li>Possibly angular js for modularizing graphs into re-usable components</li>
+                </ul>
+                <p>I would use the bootstrap simply to keep the surrounding div responsive around the graph at different device breakpoints.  This could be done by using specific bootstrap classes in the markup.  I would use the SASS include-media mixin library to make any alterations to the graph itself at different breakpoints.  The js libraries for charts will be taking care of most of the responsive work but it’s good to have some backup styling for what is missing.</p>
+                <p>To build out the javascript, I would focus on a json source possibly from a web service or one planted on the page by entering raw data into the CMS.  The json would be broken up into different indexes for the different filtered options.  From there, each index would contain the raw data needed for that view of the graph.</p>
+                <p>JavaScript would then be constructed for building the graph using the horizontal bar graph option that would target simple markup on the page.  A function would execute this graph’s construction on load but would also allow you to execute it once more when filter buttons are clicked.  When it executes, it will consume the json, construct the graph and append it to the HTML markup on the page.  If the filter buttons are clicked, the function would be passed a variable containing the parsed out json that’s needed for that filter.  This in turn will re-animate the graph with altered raw data while keeping it in place due to the fancy chart js libraries that I would be using.</p>
+                <p>Now I come from a CMS world and I strongly believe that constructing features like this needs to be re-usable.  I know that I talked about this with the first question but I would eventually steer down a path of using angular.js to make these graphs components that could be dropped anywhere through a CMS.</p>
+            </div>
+
+    </div>
+</body>
+
+</html>

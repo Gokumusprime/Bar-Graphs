@@ -1,0 +1,14 @@
+/* _mixins.scss *** Mixins for the whole site. */
+
+/* Mixins */
+
+@mixin flex-wrap {
+	display: -webkit-box;
+  	display: -ms-flexbox;
+  	display: -webkit-flex;
+  	display: flex;
+  	-webkit-flex-wrap: wrap;
+  	flex-wrap: wrap;
+  	justify-content: center;
+  	-webkit-justify-content: center;
+}

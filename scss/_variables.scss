@@ -1,0 +1,24 @@
+/* _variables.scss *** Variables for the whole site. */
+
+/* Colors */
+
+$font-list: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+
+$font-primary-color: ;
+$font-primary-white: #ffffff;
+$font-primary-black: #000000;
+$font-footer: ;
+
+$primary-background: #000000;
+$secondary-background: #ffffff;
+
+/// Creates a list of global breakpoints
+///
+/// @example scss - Creates a single breakpoint with the label `phone`
+///  $breakpoints: ('phone': 320px);
+///
+$breakpoints: (
+  'phone': 320px,
+  'tablet': 768px,
+  'desktop': 1024px
+) !default;

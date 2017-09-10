@@ -1,0 +1,10 @@
+/* all.scss ***  Compiles partials into one file */
+
+@import 'variables';
+@import 'media-queries';
+@import 'mixins';
+@import 'universal';
+@import 'nav';
+@import 'header';
+@import 'main-section';
+@import 'footer';
